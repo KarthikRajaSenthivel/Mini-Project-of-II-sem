@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-// Length conversion factors relative to meters
 const double length_factors[] = {1e-3, 1e-2, 1, 1e3, 0.3048, 0.0254, 1609.34};
-
-// Temperature conversion functions
 double to_kelvin(double value, int unit) {
     switch (unit) {
         case 0: return value + 273.15; // Celsius to Kelvin
@@ -13,7 +9,6 @@ double to_kelvin(double value, int unit) {
         default: return value;
     }
 }
-
 double from_kelvin(double value, int unit) {
     switch (unit) {
         case 0: return value - 273.15; // Kelvin to Celsius
@@ -22,21 +17,13 @@ double from_kelvin(double value, int unit) {
         default: return value;
     }
 }
-
-// Area conversion factors relative to square meters
 const double area_factors[] = {1, 1e6, 4046.86};
-
-// Weight conversion factors relative to grams
 const double weight_factors[] = {1e-3, 1, 1e3};
-
-// Time conversion factors relative to seconds
 const double time_factors[] = {1e-3, 1, 60, 3600, 86400, 604800, 2629800, 31557600};
-
 void convert(double value, const double factors[], int from, int to) {
     double result = value * factors[from] / factors[to];
     printf("Converted value: %.2lf\n", result);
 }
-
 void length_conversion() {
     printf("Length Conversion\n");
     printf("1. Millimeter\n2. Centimeter\n3. Meter\n4. Kilometer\n5. Foot\n6. Inch\n7. Mile\n");
